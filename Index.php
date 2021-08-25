@@ -1,5 +1,4 @@
 <?php
-
 /*
 Ejemplos de uso
 */
