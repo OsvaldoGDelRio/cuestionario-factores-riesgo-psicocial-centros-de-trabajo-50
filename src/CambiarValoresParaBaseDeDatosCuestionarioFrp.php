@@ -111,7 +111,7 @@ class CambiarValoresParaBaseDeDatosCuestionarioFrp
             {
                 if($value == $valor)
                 {
-                    return $key;
+                    $resultado = $key;
                 }
             }
         }
@@ -125,12 +125,14 @@ class CambiarValoresParaBaseDeDatosCuestionarioFrp
                     {
                         if($valor == $v)
                         {
-                            return $key;
+                            $resultado = $key;
                         }
                     }
                 }
             }
         }
+
+        return $resultado;
         
     }
 
@@ -138,7 +140,7 @@ class CambiarValoresParaBaseDeDatosCuestionarioFrp
     {
         if($preguntaEntrante == 'atiendeClientes' || $preguntaEntrante == 'esJefe')
         {
-            return $this->{$preguntaEntrante}[$valor];
+            $resultado = $this->{$preguntaEntrante}[$valor];
         }
         else
         {
@@ -146,9 +148,11 @@ class CambiarValoresParaBaseDeDatosCuestionarioFrp
             {
                 if($pregunta == $preguntaEntrante)
                 {
-                    return $this->{$pre}[$valor];
+                    $resultado = $this->{$pre}[$valor];
                 }
             }
         }
+
+        return $resultado;
     }   
 }

@@ -112,8 +112,10 @@ class DecisionesQuePuedeTomarEnSuTrabajo
         {
             if($key == $respuesta)
             {
-                return $value;
+                $valor = $value;
             }
         }
+
+        return $valor;
     }
 }

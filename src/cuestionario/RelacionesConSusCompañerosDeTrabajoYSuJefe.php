@@ -237,8 +237,10 @@ class RelacionesConSusCompañerosDeTrabajoYSuJefe
         {
             if($key == $respuesta)
             {
-                return $value;
+               $valor = $value;
             }
         }
+
+        return $valor;
     }
 }

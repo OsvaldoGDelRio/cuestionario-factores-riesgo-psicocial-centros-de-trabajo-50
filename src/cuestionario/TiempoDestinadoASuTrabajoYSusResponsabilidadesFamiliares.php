@@ -99,8 +99,10 @@ class TiempoDestinadoASuTrabajoYSusResponsabilidadesFamiliares
         {
             if($key == $respuesta)
             {
-                return $value;
+                $valor = $value;
             }
         }
+
+        return $valor;
     }
 }

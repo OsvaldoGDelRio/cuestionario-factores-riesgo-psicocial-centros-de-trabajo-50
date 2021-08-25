@@ -120,8 +120,10 @@ class ActitudesDeLosTrabajadoresQueSupervisa
         {
             if($key == $respuesta)
             {
-                return $value;
+                $valor = $value;
             }
         }
+
+        return $valor;
     }
 }

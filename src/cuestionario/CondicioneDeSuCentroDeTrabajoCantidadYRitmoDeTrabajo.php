@@ -164,8 +164,10 @@ class CondicioneDeSuCentroDeTrabajoCantidadYRitmoDeTrabajo
         {
             if($key == $respuesta)
             {
-                return $value;
+                $valor = $value;
             }
         }
+
+        return $valor;
     }
 }

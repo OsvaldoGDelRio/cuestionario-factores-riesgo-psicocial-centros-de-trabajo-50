@@ -99,8 +99,10 @@ class ActividadesQueRealizaEnSuTrabajoYLasResponsabilidadesQueTiene
         {
             if($key == $respuesta)
             {
-                return $value;
+                $valor = $value;
             }
         }
+
+        return $valor;
     }
 }
