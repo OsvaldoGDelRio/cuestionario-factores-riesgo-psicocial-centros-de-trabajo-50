@@ -2,19 +2,20 @@
     "name": "osvaldogdelrio/cuestionario-factores-riesgo-psicocial-centros-de-trabajo-50-nom035-stps",
     "description": "Clase PHP para el cuestionario FRP NOM035-STPS hasta 50 trabajadores",
     "type": "library",
+    "require": {
+        "osvaldogdelrio/factory": "dev-main"
+    },
     "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Osvaldogdelrio\\CuestionarioFactoresRiesgoPsicocialCentrosDeTrabajo50Nom035Stps\\": "src/"
+        }
+    },
     "authors": [
         {
             "name": "Osvaldo G Del Rio",
             "email": "osdelrio@hotmail.com"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "src\\": "src/"
-        }
-    },
-    "require": {
-        "osvaldogdelrio/factory": "dev-main"
-    }
+    "minimum-stability": "dev"
 }

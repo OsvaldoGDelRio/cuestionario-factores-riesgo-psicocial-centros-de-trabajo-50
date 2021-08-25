@@ -11,66 +11,25 @@ class ComposerStaticInitca3cac29fc3474b7892bc17dc88e9f43
         array (
             'src\\' => 4,
         ),
+        'O' => 
+        array (
+            'Osvaldogdelrio\\CuestionarioFactoresRiesgoPsicocialCentrosDeTrabajo50Nom035Stps\\' => 79,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'src\\' => 
         array (
+            0 => __DIR__ . '/..' . '/osvaldogdelrio/factory/src',
+        ),
+        'Osvaldogdelrio\\CuestionarioFactoresRiesgoPsicocialCentrosDeTrabajo50Nom035Stps\\' => 
+        array (
             0 => __DIR__ . '/../..' . '/src',
-            1 => __DIR__ . '/..' . '/osvaldogdelrio/factory/src',
         ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'src\\CambiarValoresParaBaseDeDatosCuestionarioFrp' => __DIR__ . '/../..' . '/src/CambiarValoresParaBaseDeDatosCuestionarioFrp.php',
-        'src\\CrearCuestionarioFrp' => __DIR__ . '/../..' . '/src/CrearCuestionarioFrp.php',
-        'src\\CrearObtenerRiesgos' => __DIR__ . '/../..' . '/src/CrearObtenerRiesgos.php',
-        'src\\CuestionarioFrp' => __DIR__ . '/../..' . '/src/CuestionarioFrp.php',
-        'src\\Factory' => __DIR__ . '/..' . '/osvaldogdelrio/factory/src/Factory.php',
-        'src\\FactoryClassInterface' => __DIR__ . '/..' . '/osvaldogdelrio/factory/src/FactoryClassInterface.php',
-        'src\\FactoryInterface' => __DIR__ . '/..' . '/osvaldogdelrio/factory/src/FactoryInterface.php',
-        'src\\ObtenerRiesgos' => __DIR__ . '/../..' . '/src/ObtenerRiesgos.php',
-        'src\\categorias\\AmbienteDeTrabajo' => __DIR__ . '/../..' . '/src/categorias/AmbienteDeTrabajo.php',
-        'src\\categorias\\FactoresPropiosDeLaActividad' => __DIR__ . '/../..' . '/src/categorias/FactoresPropiosDeLaActividad.php',
-        'src\\categorias\\LiderazgoYRelacionesEnElTrabajo' => __DIR__ . '/../..' . '/src/categorias/LiderazgoYRelacionesEnElTrabajo.php',
-        'src\\categorias\\OrganizacionDelTiempoDelTrabajo' => __DIR__ . '/../..' . '/src/categorias/OrganizacionDelTiempoDelTrabajo.php',
-        'src\\cuestionario\\ActitudesDeLosTrabajadoresQueSupervisa' => __DIR__ . '/../..' . '/src/cuestionario/ActitudesDeLosTrabajadoresQueSupervisa.php',
-        'src\\cuestionario\\ActividadesQueRealizaEnSuTrabajoYLasResponsabilidadesQueTiene' => __DIR__ . '/../..' . '/src/cuestionario/ActividadesQueRealizaEnSuTrabajoYLasResponsabilidadesQueTiene.php',
-        'src\\cuestionario\\AtencionAClientesYUsuarios' => __DIR__ . '/../..' . '/src/cuestionario/AtencionAClientesYUsuarios.php',
-        'src\\cuestionario\\CapacitacionEInformacionQueRecibeSobreSuTrabajo' => __DIR__ . '/../..' . '/src/cuestionario/CapacitacionEInformacionQueRecibeSobreSuTrabajo.php',
-        'src\\cuestionario\\CondicioneDeSuCentroDeTrabajoCantidadYRitmoDeTrabajo' => __DIR__ . '/../..' . '/src/cuestionario/CondicioneDeSuCentroDeTrabajoCantidadYRitmoDeTrabajo.php',
-        'src\\cuestionario\\DecisionesQuePuedeTomarEnSuTrabajo' => __DIR__ . '/../..' . '/src/cuestionario/DecisionesQuePuedeTomarEnSuTrabajo.php',
-        'src\\cuestionario\\RelacionesConSusCompañerosDeTrabajoYSuJefe' => __DIR__ . '/../..' . '/src/cuestionario/RelacionesConSusCompañerosDeTrabajoYSuJefe.php',
-        'src\\cuestionario\\TiempoDestinadoASuTrabajoYSusResponsabilidadesFamiliares' => __DIR__ . '/../..' . '/src/cuestionario/TiempoDestinadoASuTrabajoYSusResponsabilidadesFamiliares.php',
-        'src\\dimensiones\\CaracteristicasDelLiderazgo' => __DIR__ . '/../..' . '/src/dimensiones/CaracteristicasDelLiderazgo.php',
-        'src\\dimensiones\\CargaMental' => __DIR__ . '/../..' . '/src/dimensiones/CargaMental.php',
-        'src\\dimensiones\\CargasContradictoriasOInconsistentes' => __DIR__ . '/../..' . '/src/dimensiones/CargasContradictoriasOInconsistentes.php',
-        'src\\dimensiones\\CargasCuantitativas' => __DIR__ . '/../..' . '/src/dimensiones/CargasCuantitativas.php',
-        'src\\dimensiones\\CargasDeAltaResponsabilidad' => __DIR__ . '/../..' . '/src/dimensiones/CargasDeAltaResponsabilidad.php',
-        'src\\dimensiones\\CargasPsicologicasEmocionales' => __DIR__ . '/../..' . '/src/dimensiones/CargasPsicologicasEmocionales.php',
-        'src\\dimensiones\\CondicionesDeficientesEInsalubres' => __DIR__ . '/../..' . '/src/dimensiones/CondicionesDeficientesEInsalubres.php',
-        'src\\dimensiones\\CondicionesPeligrosasEInseguras' => __DIR__ . '/../..' . '/src/dimensiones/CondicionesPeligrosasEInseguras.php',
-        'src\\dimensiones\\DeficienteRelacionConLosColaboradoresQueSupervisa' => __DIR__ . '/../..' . '/src/dimensiones/DeficienteRelacionConLosColaboradoresQueSupervisa.php',
-        'src\\dimensiones\\EscasaClaridadDeFunciones' => __DIR__ . '/../..' . '/src/dimensiones/EscasaClaridadDeFunciones.php',
-        'src\\dimensiones\\FaltaDeControlYAutonomiaSobreElTrabajo' => __DIR__ . '/../..' . '/src/dimensiones/FaltaDeControlYAutonomiaSobreElTrabajo.php',
-        'src\\dimensiones\\InfluenciaDeLasResponsabilidadesFamiliares' => __DIR__ . '/../..' . '/src/dimensiones/InfluenciaDeLasResponsabilidadesFamiliares.php',
-        'src\\dimensiones\\InfluenciaDelTrabajoFueraDelCentroLaboral' => __DIR__ . '/../..' . '/src/dimensiones/InfluenciaDelTrabajoFueraDelCentroLaboral.php',
-        'src\\dimensiones\\JornadasDeTrabajoExtensas' => __DIR__ . '/../..' . '/src/dimensiones/JornadasDeTrabajoExtensas.php',
-        'src\\dimensiones\\LimitadaOInexstenteCapacitacion' => __DIR__ . '/../..' . '/src/dimensiones/LimitadaOInexstenteCapacitacion.php',
-        'src\\dimensiones\\LimitadaONulaPosibilidadDeDesarrollo' => __DIR__ . '/../..' . '/src/dimensiones/LimitadaONulaPosibilidadDeDesarrollo.php',
-        'src\\dimensiones\\RelacionesSocialesEnElTrabajo' => __DIR__ . '/../..' . '/src/dimensiones/RelacionesSocialesEnElTrabajo.php',
-        'src\\dimensiones\\RitmoDeTrabajoAcelerado' => __DIR__ . '/../..' . '/src/dimensiones/RitmoDeTrabajoAcelerado.php',
-        'src\\dimensiones\\TrabajosPeligrosos' => __DIR__ . '/../..' . '/src/dimensiones/TrabajosPeligrosos.php',
-        'src\\dimensiones\\ViolenciaLaboral' => __DIR__ . '/../..' . '/src/dimensiones/ViolenciaLaboral.php',
-        'src\\dominios\\CargaDeTrabajo' => __DIR__ . '/../..' . '/src/dominios/CargaDeTrabajo.php',
-        'src\\dominios\\CondicionesEnElAmbienteDeTrabajo' => __DIR__ . '/../..' . '/src/dominios/CondicionesEnElAmbienteDeTrabajo.php',
-        'src\\dominios\\FaltaDeControlSobreElTrabajo' => __DIR__ . '/../..' . '/src/dominios/FaltaDeControlSobreElTrabajo.php',
-        'src\\dominios\\InterferenciaEnLaRelacionTrabajoFamilia' => __DIR__ . '/../..' . '/src/dominios/InterferenciaEnLaRelacionTrabajoFamilia.php',
-        'src\\dominios\\JornadaDeTrabajo' => __DIR__ . '/../..' . '/src/dominios/JornadaDeTrabajo.php',
-        'src\\dominios\\Liderazgo' => __DIR__ . '/../..' . '/src/dominios/Liderazgo.php',
-        'src\\dominios\\RelacionesEnElTrabajo' => __DIR__ . '/../..' . '/src/dominios/RelacionesEnElTrabajo.php',
-        'src\\dominios\\Violencia' => __DIR__ . '/../..' . '/src/dominios/Violencia.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

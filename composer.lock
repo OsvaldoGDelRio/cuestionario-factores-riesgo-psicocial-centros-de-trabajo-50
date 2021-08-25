@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8f5b90128a7cb98660202b8fd30a109",
+    "content-hash": "aacd67398c74632e6c3a2cb811efae8a",
     "packages": [
         {
             "name": "osvaldogdelrio/factory",
@@ -47,7 +47,7 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "osvaldogdelrio/factory": 20
     },
