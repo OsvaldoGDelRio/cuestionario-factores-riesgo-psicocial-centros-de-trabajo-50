@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "b8f5b90128a7cb98660202b8fd30a109",
+    "packages": [
+        {
+            "name": "osvaldogdelrio/factory",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OsvaldoGDelRio/factory.git",
+                "reference": "c56fec704cba73f168635d31cd94281e459e304b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OsvaldoGDelRio/factory/zipball/c56fec704cba73f168635d31cd94281e459e304b",
+                "reference": "c56fec704cba73f168635d31cd94281e459e304b",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "src\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Osvaldo G Del Rio",
+                    "email": "osdelrio@hotmail.com"
+                }
+            ],
+            "description": "Clase para crear otros objetos/clases con el patr\u0000n Factory",
+            "support": {
+                "issues": "https://github.com/OsvaldoGDelRio/factory/issues",
+                "source": "https://github.com/OsvaldoGDelRio/factory/tree/main"
+            },
+            "time": "2021-08-21T15:39:20+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "osvaldogdelrio/factory": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}

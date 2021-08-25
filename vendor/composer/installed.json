@@ -1,0 +1,47 @@
+{
+    "packages": [
+        {
+            "name": "osvaldogdelrio/factory",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OsvaldoGDelRio/factory.git",
+                "reference": "c56fec704cba73f168635d31cd94281e459e304b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OsvaldoGDelRio/factory/zipball/c56fec704cba73f168635d31cd94281e459e304b",
+                "reference": "c56fec704cba73f168635d31cd94281e459e304b",
+                "shasum": ""
+            },
+            "time": "2021-08-21T15:39:20+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "src\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Osvaldo G Del Rio",
+                    "email": "osdelrio@hotmail.com"
+                }
+            ],
+            "description": "Clase para crear otros objetos/clases con el patr\u0000n Factory",
+            "support": {
+                "issues": "https://github.com/OsvaldoGDelRio/factory/issues",
+                "source": "https://github.com/OsvaldoGDelRio/factory/tree/main"
+            },
+            "install-path": "../osvaldogdelrio/factory"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

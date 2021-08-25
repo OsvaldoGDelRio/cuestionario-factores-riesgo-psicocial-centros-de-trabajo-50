@@ -1,0 +1,17 @@
+{
+    "name": "osvaldogdelrio/factory",
+    "description": "Clase para crear otros objetos/clases con el patr\u0000n Factory",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Osvaldo G Del Rio",
+            "email": "osdelrio@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        }
+    }
+}
