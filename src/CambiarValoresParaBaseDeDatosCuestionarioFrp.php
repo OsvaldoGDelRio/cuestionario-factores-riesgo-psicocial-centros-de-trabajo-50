@@ -105,6 +105,8 @@ class CambiarValoresParaBaseDeDatosCuestionarioFrp
 
     public function cambiarDeNumeroATexto(string $preguntaEntrante, int $valor): string
     {
+        $resultado = '';
+        
         if($preguntaEntrante == 'atiendeClientes' || $preguntaEntrante == 'esJefe')
         {
             foreach ($this->{$preguntaEntrante} as $key => $value)
@@ -138,6 +140,8 @@ class CambiarValoresParaBaseDeDatosCuestionarioFrp
 
     public function cambiarDeTextoANumero(string $preguntaEntrante, string $valor): int
     {
+        $resultado = 0;
+
         if($preguntaEntrante == 'atiendeClientes' || $preguntaEntrante == 'esJefe')
         {
             $resultado = $this->{$preguntaEntrante}[$valor];
