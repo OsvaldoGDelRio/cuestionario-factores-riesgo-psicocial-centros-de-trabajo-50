@@ -1,6 +1,8 @@
 <?php
 namespace src;
 
+use Exception;
+
 use src\categorias\{
     AmbienteDeTrabajo,
     FactoresPropiosDeLaActividad,
@@ -14,6 +16,13 @@ class ObtenerRiesgos
     private $_factoresPropiosDeLaActividad;
     private $_liderazgoYRelacionesEnElTrabajo;
     private $_organizacionDelTiempoDelTrabajo;
+    private $_niveles = array(
+        '0-20' => 'Nulo o despreciable',
+        '20-45' => 'Bajo',
+        '45-70' => 'Medio',
+        '70-90' => 'Alto',
+        '90-99' => 'Muy alto'
+    );
 
     public function __construct
     (
@@ -40,34 +49,17 @@ class ObtenerRiesgos
 
     public function obtenerRiesgosCualitativos(): string
     {
-        $riesgo = '';
-        
-        if($this->obtenerRiesgos() < 20)
+        foreach ($this->_niveles as $k => $v)
         {
-            $riesgo = 'Nulo o despreciable';
+            $uno = explode('-',$k)[0];
+            $dos = explode('-',$k)[1];
+            if($this->obtenerRiesgos() >= $uno && $this->obtenerRiesgos() < $dos)
+            {
+                return $v;
+            }
         }
 
-        if($this->obtenerRiesgos() >= 20 && $this->obtenerRiesgos() < 45)
-        {
-            $riesgo = 'Bajo';
-        }
-
-        if($this->obtenerRiesgos() >= 45 && $this->obtenerRiesgos() < 70)
-        {
-            $riesgo = 'Medio';
-        }
-
-        if($this->obtenerRiesgos() >= 70 && $this->obtenerRiesgos() < 90)
-        {
-            $riesgo = 'Alto';
-        }
-
-        if($this->obtenerRiesgos() >= 90)
-        {
-            $riesgo = 'Muy alto';
-        }
-
-        return $riesgo;
+        throw new Exception("Error para obtener riesgo cualitativo", 1);
     }
 
     public function organizacionDelTiempoDelTrabajo(): OrganizacionDelTiempoDelTrabajo
