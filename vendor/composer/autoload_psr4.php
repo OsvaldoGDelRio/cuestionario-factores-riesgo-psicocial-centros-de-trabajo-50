@@ -6,6 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'src\\' => array($vendorDir . '/osvaldogdelrio/factory/src'),
-    'Osvaldogdelrio\\CuestionarioFactoresRiesgoPsicocialCentrosDeTrabajo50Nom035Stps\\' => array($baseDir . '/src'),
+    'src\\' => array($baseDir . '/src', $vendorDir . '/osvaldogdelrio/factory/src'),
 );

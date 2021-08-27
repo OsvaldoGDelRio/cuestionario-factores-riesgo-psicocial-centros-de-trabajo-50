@@ -8,7 +8,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Osvaldogdelrio\\CuestionarioFactoresRiesgoPsicocialCentrosDeTrabajo50Nom035Stps\\": "src/"
+            "src\\": "src/"
         }
     },
     "authors": [
