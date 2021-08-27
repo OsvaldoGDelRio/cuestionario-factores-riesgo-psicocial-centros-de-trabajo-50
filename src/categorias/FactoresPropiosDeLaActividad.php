@@ -1,12 +1,20 @@
 <?php
 namespace src\categorias;
 
+use Exception;
 use src\dominios\{CargaDeTrabajo,FaltaDeControlSobreElTrabajo};
 
 class FactoresPropiosDeLaActividad
 {
     private $_cargaDeTrabajo;
     private $_faltaDeControlSobreElTrabajo;
+    private $_niveles = array(
+        '0-10' => 'Nulo o despreciable',
+        '10-20' => 'Bajo',
+        '20-30' => 'Medio',
+        '30-40' => 'Alto',
+        '40-99' => 'Muy alto'
+    );
     
     public function __construct
     (
@@ -37,33 +45,16 @@ class FactoresPropiosDeLaActividad
 
     public function obtenerRiesgosCualitativos(): string
     {
-        $riesgo = '';
-        
-        if($this->factoresPropiosDeLaActividad() < 10)
+        foreach ($this->_niveles as $k => $v)
         {
-            $riesgo = 'Nulo o despreciable';
+            $uno = explode('-',$k)[0];
+            $dos = explode('-',$k)[1];
+            if($this->factoresPropiosDeLaActividad() >= $uno && $this->factoresPropiosDeLaActividad() < $dos)
+            {
+                return $v;
+            }
         }
 
-        if($this->factoresPropiosDeLaActividad() >= 10 && $this->factoresPropiosDeLaActividad() < 20)
-        {
-            $riesgo = 'Bajo';
-        }
-
-        if($this->factoresPropiosDeLaActividad() >= 20 && $this->factoresPropiosDeLaActividad() < 30)
-        {
-            $riesgo = 'Medio';
-        }
-
-        if($this->factoresPropiosDeLaActividad() >= 30 && $this->factoresPropiosDeLaActividad() < 40)
-        {
-            $riesgo = 'Alto';
-        }
-
-        if($this->factoresPropiosDeLaActividad() >= 40)
-        {
-            $riesgo = 'Muy alto';
-        }
-
-        return $riesgo;
+        throw new Exception("Error para obtener riesgo cualitativo", 1);
     }
 }

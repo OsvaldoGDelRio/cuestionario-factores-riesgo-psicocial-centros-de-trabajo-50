@@ -1,6 +1,7 @@
 <?php
 namespace src\categorias;
 
+use Exception;
 use src\dominios\{Liderazgo,RelacionesEnElTrabajo,Violencia};
 
 class LiderazgoYRelacionesEnElTrabajo
@@ -8,6 +9,13 @@ class LiderazgoYRelacionesEnElTrabajo
     private $_liderazgo;
     private $_relacionesEnElTrabajo;
     private $_violencia;
+    private $_niveles = array(
+        '0-10' => 'Nulo o despreciable',
+        '10-18' => 'Bajo',
+        '18-28' => 'Medio',
+        '28-38' => 'Alto',
+        '38-99' => 'Muy alto'
+    );
 
     public function __construct
     (
@@ -46,33 +54,16 @@ class LiderazgoYRelacionesEnElTrabajo
 
     public function obtenerRiesgosCualitativos(): string
     {
-        $riesgo = '';
-        
-        if($this->liderazgoYRelacionesEnElTrabajo() < 10)
+        foreach ($this->_niveles as $k => $v)
         {
-            $riesgo = 'Nulo o despreciable';
+            $uno = explode('-',$k)[0];
+            $dos = explode('-',$k)[1];
+            if($this->liderazgoYRelacionesEnElTrabajo() >= $uno && $this->liderazgoYRelacionesEnElTrabajo() < $dos)
+            {
+                return $v;
+            }
         }
 
-        if($this->liderazgoYRelacionesEnElTrabajo() >= 10 && $this->liderazgoYRelacionesEnElTrabajo() < 18)
-        {
-            $riesgo = 'Bajo';
-        }
-
-        if($this->liderazgoYRelacionesEnElTrabajo() >= 18 && $this->liderazgoYRelacionesEnElTrabajo() < 28)
-        {
-            $riesgo = 'Medio';
-        }
-
-        if($this->liderazgoYRelacionesEnElTrabajo() >= 28 && $this->liderazgoYRelacionesEnElTrabajo() < 38)
-        {
-            $riesgo = 'Alto';
-        }
-
-        if($this->liderazgoYRelacionesEnElTrabajo() >= 38)
-        {
-            $riesgo = 'Muy alto';
-        }
-
-        return $riesgo;
+        throw new Exception("Error para obtener riesgo cualitativo", 1);
     }
 }

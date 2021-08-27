@@ -1,12 +1,20 @@
 <?php
 namespace src\categorias;
 
+use Exception;
 use src\dominios\{JornadaDeTrabajo,InterferenciaEnLaRelacionTrabajoFamilia};
 
 class OrganizacionDelTiempoDelTrabajo
 {
     private $_jornadaDeTrabajo;
     private $_interferenciaEnLaRelacionTrabajoFamilia;
+    private $_niveles = array(
+        '0-4' => 'Nulo o despreciable',
+        '4-6' => 'Bajo',
+        '6-9' => 'Medio',
+        '9-12' => 'Alto',
+        '12-99' => 'Muy alto'
+    );
 
     public function __construct
     (
@@ -37,33 +45,16 @@ class OrganizacionDelTiempoDelTrabajo
 
     public function obtenerRiesgosCualitativos(): string
     {
-        $riesgo = '';
-        
-        if($this->organizacionDelTiempoDelTrabajo() < 4)
+        foreach ($this->_niveles as $k => $v)
         {
-            $riesgo = 'Nulo o despreciable';
+            $uno = explode('-',$k)[0];
+            $dos = explode('-',$k)[1];
+            if($this->organizacionDelTiempoDelTrabajo() >= $uno && $this->organizacionDelTiempoDelTrabajo() < $dos)
+            {
+                return $v;
+            }
         }
 
-        if($this->organizacionDelTiempoDelTrabajo() >= 4 && $this->organizacionDelTiempoDelTrabajo() < 6)
-        {
-            $riesgo = 'Bajo';
-        }
-
-        if($this->organizacionDelTiempoDelTrabajo() >= 6 && $this->organizacionDelTiempoDelTrabajo() < 9)
-        {
-            $riesgo = 'Medio';
-        }
-
-        if($this->organizacionDelTiempoDelTrabajo() >= 9 && $this->organizacionDelTiempoDelTrabajo() < 12)
-        {
-            $riesgo = 'Alto';
-        }
-
-        if($this->organizacionDelTiempoDelTrabajo() >= 12)
-        {
-            $riesgo = 'Muy alto';
-        }
-
-        return $riesgo;
+        throw new Exception("Error para obtener riesgo cualitativo", 1);
     }
 }
