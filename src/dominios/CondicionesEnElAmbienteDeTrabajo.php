@@ -1,6 +1,7 @@
 <?php
 namespace src\dominios;
 
+use Exception;
 use src\dimensiones\{CondicionesDeficientesEInsalubres,CondicionesPeligrosasEInseguras,TrabajosPeligrosos};
 
 class CondicionesEnElAmbienteDeTrabajo
@@ -8,6 +9,13 @@ class CondicionesEnElAmbienteDeTrabajo
     private $_condicionesDeficientesEInsalubres;
     private $_condicionesPeligrosasEInseguras;
     private $_trabajosPeligrosos;
+    private $_niveles = array(
+        '0-3' => 'Nulo o despreciable',
+        '3-5' => 'Bajo',
+        '5-7' => 'Medio',
+        '7-9' => 'Alto',
+        '9-99' => 'Muy alto'
+    );
 
     public function __construct
     (
@@ -46,34 +54,17 @@ class CondicionesEnElAmbienteDeTrabajo
 
     public function obtenerRiesgosCualitativos(): string
     {
-        $riesgo = '';
-        
-        if($this->condicionesEnElAmbienteDeTrabajo() < 3)
+        foreach ($this->_niveles as $k => $v)
         {
-            $riesgo = 'Nulo o despreciable';
+            $uno = explode('-',$k)[0];
+            $dos = explode('-',$k)[1];
+            if($this->condicionesEnElAmbienteDeTrabajo() >= $uno && $this->condicionesEnElAmbienteDeTrabajo() < $dos)
+            {
+                return $v;
+            }
         }
 
-        if($this->condicionesEnElAmbienteDeTrabajo() >= 3 && $this->condicionesEnElAmbienteDeTrabajo() < 5)
-        {
-            $riesgo = 'Bajo';
-        }
-
-        if($this->condicionesEnElAmbienteDeTrabajo() >= 5 && $this->condicionesEnElAmbienteDeTrabajo() < 7)
-        {
-            $riesgo = 'Medio';
-        }
-
-        if($this->condicionesEnElAmbienteDeTrabajo() >= 7 && $this->condicionesEnElAmbienteDeTrabajo() < 9)
-        {
-            $riesgo = 'Alto';
-        }
-
-        if($this->condicionesEnElAmbienteDeTrabajo() >= 9)
-        {
-            $riesgo = 'Muy alto';
-        }
-
-        return $riesgo;
+        throw new Exception("Error para obtener riesgo cualitativo");
     }
 
 

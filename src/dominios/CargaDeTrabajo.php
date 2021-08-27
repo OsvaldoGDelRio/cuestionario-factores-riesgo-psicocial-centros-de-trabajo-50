@@ -1,6 +1,8 @@
 <?php
 namespace src\dominios;
 
+use Exception;
+
 use src\dimensiones\{
     CargasCuantitativas,
     RitmoDeTrabajoAcelerado,
@@ -18,6 +20,13 @@ class CargaDeTrabajo
     private $_cargasPsicologicasEmocionales;
     private $_cargasDeAltaResponsabilidad;
     private $_cargasContradictoriasOIncosistentes;
+    private $_niveles = array(
+        '0-12' => 'Nulo o despreciable',
+        '12-16' => 'Bajo',
+        '16-20' => 'Medio',
+        '20-24' => 'Alto',
+        '24-99' => 'Muy alto'
+    );
 
     public function __construct
     (
@@ -80,33 +89,16 @@ class CargaDeTrabajo
 
     public function obtenerRiesgosCualitativos(): string
     {
-        $riesgo = '';
-        
-        if($this->cargaDeTrabajo() < 12)
+        foreach ($this->_niveles as $k => $v)
         {
-            $riesgo = 'Nulo o despreciable';
+            $uno = explode('-',$k)[0];
+            $dos = explode('-',$k)[1];
+            if($this->cargaDeTrabajo() >= $uno && $this->cargaDeTrabajo() < $dos)
+            {
+                return $v;
+            }
         }
 
-        if($this->cargaDeTrabajo() >= 12 && $this->cargaDeTrabajo() < 16)
-        {
-            $riesgo = 'Bajo';
-        }
-
-        if($this->cargaDeTrabajo() >= 16 && $this->cargaDeTrabajo() < 20)
-        {
-            $riesgo = 'Medio';
-        }
-
-        if($this->cargaDeTrabajo() >= 20 && $this->cargaDeTrabajo() < 24)
-        {
-            $riesgo = 'Alto';
-        }
-
-        if($this->cargaDeTrabajo() >= 24)
-        {
-            $riesgo = 'Muy alto';
-        }
-
-        return $riesgo;
+        throw new Exception("Error para obtener riesgo cualitativo");
     }
 }

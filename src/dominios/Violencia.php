@@ -1,11 +1,19 @@
 <?php
 namespace src\dominios;
 
+use Exception;
 use src\dimensiones\ViolenciaLaboral;
 
 class Violencia
 {
     private $_violenciaLaboral;
+    private $_niveles = array(
+        '0-7' => 'Nulo o despreciable',
+        '7-10' => 'Bajo',
+        '10-13' => 'Medio',
+        '13-16' => 'Alto',
+        '16-99' => 'Muy alto'
+    );
 
     public function __construct(ViolenciaLaboral $ViolenciaLaboral)
     {
@@ -24,33 +32,16 @@ class Violencia
 
     public function obtenerRiesgosCualitativos(): string
     {
-        $riesgo = '';
-        
-        if($this->violencia() < 7)
+        foreach ($this->_niveles as $k => $v)
         {
-            $riesgo = 'Nulo o despreciable';
+            $uno = explode('-',$k)[0];
+            $dos = explode('-',$k)[1];
+            if($this->violencia() >= $uno && $this->violencia() < $dos)
+            {
+                return $v;
+            }
         }
 
-        if($this->violencia() >= 7 && $this->violencia() < 10)
-        {
-            $riesgo = 'Bajo';
-        }
-
-        if($this->violencia() >= 10 && $this->violencia() < 13)
-        {
-            $riesgo = 'Medio';
-        }
-
-        if($this->violencia() >= 13 && $this->violencia() < 16)
-        {
-            $riesgo = 'Alto';
-        }
-
-        if($this->violencia() >= 16)
-        {
-            $riesgo = 'Muy alto';
-        }
-
-        return $riesgo;
+        throw new Exception("Error para obtener riesgo cualitativo");
     }
 }

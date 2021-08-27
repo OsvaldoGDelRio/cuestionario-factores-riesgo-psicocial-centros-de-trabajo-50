@@ -1,5 +1,6 @@
 <?php
 namespace src\dominios;
+use Exception;
 use src\dimensiones\{FaltaDeControlYAutonomiaSobreElTrabajo, LimitadaONulaPosibilidadDeDesarrollo,LimitadaOInexstenteCapacitacion};
 
 class FaltaDeControlSobreElTrabajo
@@ -7,6 +8,13 @@ class FaltaDeControlSobreElTrabajo
     private $_faltaDeControlYAutonomiaSobreElTrabajo;
     private $_limitadaONulaPosibilidadDeDesarrollo;
     private $_limitadaOInexstenteCapacitacion;
+    private $_niveles = array(
+        '0-5' => 'Nulo o despreciable',
+        '5-8' => 'Bajo',
+        '8-11' => 'Medio',
+        '11-14' => 'Alto',
+        '14-99' => 'Muy alto'
+    );
 
     public function __construct
     (
@@ -45,33 +53,16 @@ class FaltaDeControlSobreElTrabajo
 
     public function obtenerRiesgosCualitativos(): string
     {
-        $riesgo = '';
-        
-        if($this->faltaDeControlSobreElTrabajo() < 5)
+        foreach ($this->_niveles as $k => $v)
         {
-            $riesgo = 'Nulo o despreciable';
+            $uno = explode('-',$k)[0];
+            $dos = explode('-',$k)[1];
+            if($this->faltaDeControlSobreElTrabajo() >= $uno && $this->faltaDeControlSobreElTrabajo() < $dos)
+            {
+                return $v;
+            }
         }
 
-        if($this->faltaDeControlSobreElTrabajo() >= 5 && $this->faltaDeControlSobreElTrabajo() < 8)
-        {
-            $riesgo = 'Bajo';
-        }
-
-        if($this->faltaDeControlSobreElTrabajo() >= 8 && $this->faltaDeControlSobreElTrabajo() < 11)
-        {
-            $riesgo = 'Medio';
-        }
-
-        if($this->faltaDeControlSobreElTrabajo() >= 11 && $this->faltaDeControlSobreElTrabajo() < 14)
-        {
-            $riesgo = 'Alto';
-        }
-
-        if($this->faltaDeControlSobreElTrabajo() >= 14)
-        {
-            $riesgo = 'Muy alto';
-        }
-
-        return $riesgo;
+        throw new Exception("Error para obtener riesgo cualitativo");
     }
 }

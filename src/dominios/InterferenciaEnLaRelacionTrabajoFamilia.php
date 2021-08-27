@@ -1,11 +1,19 @@
 <?php
 namespace src\dominios;
+use Exception;
 use src\dimensiones\{InfluenciaDelTrabajoFueraDelCentroLaboral,InfluenciaDeLasResponsabilidadesFamiliares};
 
 class InterferenciaEnLaRelacionTrabajoFamilia
 {
     private $_influenciaDelTrabajoFueraDelCentroLaboral;
     private $_influenciaDeLasResponsabilidadesFamiliares;
+    private $_niveles = array(
+        '0-1' => 'Nulo o despreciable',
+        '1-2' => 'Bajo',
+        '2-4' => 'Medio',
+        '4-6' => 'Alto',
+        '6-99' => 'Muy alto'
+    );
 
     public function __construct
     (
@@ -36,33 +44,16 @@ class InterferenciaEnLaRelacionTrabajoFamilia
 
     public function obtenerRiesgosCualitativos(): string
     {
-        $riesgo = '';
-        
-        if($this->interferenciaEnLaRelacionTrabajoFamilia() < 1)
+        foreach ($this->_niveles as $k => $v)
         {
-            $riesgo = 'Nulo o despreciable';
+            $uno = explode('-',$k)[0];
+            $dos = explode('-',$k)[1];
+            if($this->interferenciaEnLaRelacionTrabajoFamilia() >= $uno && $this->interferenciaEnLaRelacionTrabajoFamilia() < $dos)
+            {
+                return $v;
+            }
         }
 
-        if($this->interferenciaEnLaRelacionTrabajoFamilia() >= 1 && $this->interferenciaEnLaRelacionTrabajoFamilia() < 2)
-        {
-            $riesgo = 'Bajo';
-        }
-
-        if($this->interferenciaEnLaRelacionTrabajoFamilia() >= 2 && $this->interferenciaEnLaRelacionTrabajoFamilia() < 4)
-        {
-            $riesgo = 'Medio';
-        }
-
-        if($this->interferenciaEnLaRelacionTrabajoFamilia() >= 4 && $this->interferenciaEnLaRelacionTrabajoFamilia() < 6)
-        {
-            $riesgo = 'Alto';
-        }
-
-        if($this->interferenciaEnLaRelacionTrabajoFamilia() >= 6)
-        {
-            $riesgo = 'Muy alto';
-        }
-
-        return $riesgo;
+        throw new Exception("Error para obtener riesgo cualitativo");
     }
 }

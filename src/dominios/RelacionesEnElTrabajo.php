@@ -1,12 +1,20 @@
 <?php
 namespace src\dominios;
 
+use Exception;
 use src\dimensiones\{RelacionesSocialesEnElTrabajo,DeficienteRelacionConLosColaboradoresQueSupervisa};
 
 class RelacionesEnElTrabajo
 {
     private $_relacionesSocialesEnElTrabajo;
     private $_deficienteRelacionConLosColaboradoresQueSupervisa;
+    private $_niveles = array(
+        '0-5' => 'Nulo o despreciable',
+        '5-8' => 'Bajo',
+        '8-11' => 'Medio',
+        '11-14' => 'Alto',
+        '14-99' => 'Muy alto'
+    );
 
     public function __construct
     (
@@ -37,33 +45,16 @@ class RelacionesEnElTrabajo
 
     public function obtenerRiesgosCualitativos(): string
     {
-        $riesgo = '';
-        
-        if($this->relacionesEnElTrabajo() < 5)
+        foreach ($this->_niveles as $k => $v)
         {
-            $riesgo = 'Nulo o despreciable';
+            $uno = explode('-',$k)[0];
+            $dos = explode('-',$k)[1];
+            if($this->relacionesEnElTrabajo() >= $uno && $this->relacionesEnElTrabajo() < $dos)
+            {
+                return $v;
+            }
         }
 
-        if($this->relacionesEnElTrabajo() >= 5 && $this->relacionesEnElTrabajo() < 8)
-        {
-            $riesgo = 'Bajo';
-        }
-
-        if($this->relacionesEnElTrabajo() >= 8 && $this->relacionesEnElTrabajo() < 11)
-        {
-            $riesgo = 'Medio';
-        }
-
-        if($this->relacionesEnElTrabajo() >= 11 && $this->relacionesEnElTrabajo() < 14)
-        {
-            $riesgo = 'Alto';
-        }
-
-        if($this->relacionesEnElTrabajo() >= 14)
-        {
-            $riesgo = 'Muy alto';
-        }
-
-        return $riesgo;
+        throw new Exception("Error para obtener riesgo cualitativo");
     }
 }

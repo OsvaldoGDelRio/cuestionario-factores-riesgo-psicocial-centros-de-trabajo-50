@@ -1,11 +1,19 @@
 <?php
 namespace src\dominios;
 
+use Exception;
 use src\dimensiones\JornadasDeTrabajoExtensas;
 
 class JornadaDeTrabajo
 {
     private $_jornadasDeTrabajoExtensas;
+    private $_niveles = array(
+        '0-1' => 'Nulo o despreciable',
+        '1-2' => 'Bajo',
+        '2-4' => 'Medio',
+        '4-6' => 'Alto',
+        '6-99' => 'Muy alto'
+    );
 
     public function __construct(JornadasDeTrabajoExtensas $JornadasDeTrabajoExtensas)
     {
@@ -25,33 +33,16 @@ class JornadaDeTrabajo
 
     public function obtenerRiesgosCualitativos(): string
     {
-        $riesgo = '';
-        
-        if($this->jornadaDeTrabajo() < 1)
+        foreach ($this->_niveles as $k => $v)
         {
-            $riesgo = 'Nulo o despreciable';
+            $uno = explode('-',$k)[0];
+            $dos = explode('-',$k)[1];
+            if($this->jornadaDeTrabajo() >= $uno && $this->jornadaDeTrabajo() < $dos)
+            {
+                return $v;
+            }
         }
 
-        if($this->jornadaDeTrabajo() >= 1 && $this->jornadaDeTrabajo() < 2)
-        {
-            $riesgo = 'Bajo';
-        }
-
-        if($this->jornadaDeTrabajo() >= 2 && $this->jornadaDeTrabajo() < 4)
-        {
-            $riesgo = 'Medio';
-        }
-
-        if($this->jornadaDeTrabajo() >= 4 && $this->jornadaDeTrabajo() < 6)
-        {
-            $riesgo = 'Alto';
-        }
-
-        if($this->jornadaDeTrabajo() >= 6)
-        {
-            $riesgo = 'Muy alto';
-        }
-
-        return $riesgo;
+        throw new Exception("Error para obtener riesgo cualitativo");
     }
 }

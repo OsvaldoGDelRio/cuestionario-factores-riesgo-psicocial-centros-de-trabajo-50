@@ -1,12 +1,20 @@
 <?php
 namespace src\dominios;
 
+use Exception;
 use src\dimensiones\{EscasaClaridadDeFunciones,CaracteristicasDelLiderazgo};
 
 class Liderazgo
 {
     private $_escasaClaridadDeFunciones;
     private $_caracteristicasDelLiderazgo;
+    private $_niveles = array(
+        '0-3' => 'Nulo o despreciable',
+        '3-5' => 'Bajo',
+        '5-8' => 'Medio',
+        '8-11' => 'Alto',
+        '11-99' => 'Muy alto'
+    );
 
     public function __construct
     (
@@ -37,33 +45,16 @@ class Liderazgo
 
     public function obtenerRiesgosCualitativos(): string
     {
-        $riesgo = '';
-        
-        if($this->liderazgo() < 3)
+        foreach ($this->_niveles as $k => $v)
         {
-            $riesgo = 'Nulo o despreciable';
+            $uno = explode('-',$k)[0];
+            $dos = explode('-',$k)[1];
+            if($this->liderazgo() >= $uno && $this->liderazgo() < $dos)
+            {
+                return $v;
+            }
         }
 
-        if($this->liderazgo() >= 3 && $this->liderazgo() < 5)
-        {
-            $riesgo = 'Bajo';
-        }
-
-        if($this->liderazgo() >= 5 && $this->liderazgo() < 8)
-        {
-            $riesgo = 'Medio';
-        }
-
-        if($this->liderazgo() >= 8 && $this->liderazgo() < 11)
-        {
-            $riesgo = 'Alto';
-        }
-
-        if($this->liderazgo() >= 11)
-        {
-            $riesgo = 'Muy alto';
-        }
-
-        return $riesgo;
+        throw new Exception("Error para obtener riesgo cualitativo");
     }
 }
